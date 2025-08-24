@@ -1,0 +1,74 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className, ...props } = Astro.props as Props
+
+const lines = [
+  'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.',
+  'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.',
+  'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed.',
+  'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis.'
+]
+---
+
+<div
+  class:list={['css-content css', className]}
+  {...props}
+>
+  <div class="stop-anim relative mx-auto w-[80%] overflow-hidden border border-gray-200 p-10">
+    <div class="css__block-one"></div>
+    <div class="css__block-one-stop">НАВЕДИ ЧТОБ ОСТАНОВИТЬ</div>
+  </div>
+
+  <h2 class="css__text-animation mx-auto mt-20 w-[80%] p-10 shadow-custom">
+    {
+      lines.map((line, index) => (
+        <span
+          class="line"
+          style={`animation-delay: ${index * 0.6}s`}
+        >
+          {line}
+        </span>
+      ))
+    }
+  </h2>
+
+  <h2
+    class="anim-text"
+    data-text="Наведи"
+  >
+    Наведи
+  </h2>
+
+  <h3 class="mt-20 text-center">Чтобы увидеть анимации на кругах - нужно обновить страницу</h3>
+  <div class="mx-auto mt-20 flex w-[80%] gap-10">
+    <div class="glow h-[100px] w-[100px] rounded-full bg-[#ccc]"></div>
+    <div class="pulse h-[100px] w-[100px] rounded-full bg-[#ccc]"></div>
+    <div class="fall h-[100px] w-[100px] rounded-full bg-[#ccc]"></div>
+    <div class="scale-in h-[100px] w-[100px] rounded-full bg-[#ccc]"></div>
+    <div class="glitch h-[100px] w-[100px] rounded-full bg-[#ccc]"></div>
+    <div class="slide-up h-[100px] w-[100px] rounded-full bg-[#ccc]"></div>
+    <div class="swing h-[100px] w-[100px] rounded-full bg-[#ccc]"></div>
+    <div class="fade-in h-[100px] w-[100px] rounded-full bg-[#ccc]"></div>
+    <div class="blink h-[100px] w-[100px] rounded-full bg-[#ccc]"></div>
+  </div>
+
+  <div class="mt-[200px]">
+    <div class="scene">
+      <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import './css-content.scss';
+</style>

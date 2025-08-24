@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+  margin: 0 auto;
+
+  color: #000000;
+
+  main {
+    flex: 1 0;
+  }
+}
+
+.page-container {
+  min-height: 100vh;
+  padding-top: rem(50px);
+}
+
+
+@keyframes fall {
+  0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.fall {
+  animation: fall 1s ease-out forwards;
+}

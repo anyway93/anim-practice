@@ -1,0 +1,102 @@
+---
+import Button from '@shared/ui/buttons/button/Button.astro'
+import Layout from '@widgets/layout/Layout.astro'
+
+const pages = [
+  {
+    title: 'Обычный CSS',
+    href: 'animations-css'
+  },
+  {
+    title: 'GSAP - Анимации',
+    href: 'animations-gsap'
+  }
+]
+---
+
+<Layout pageName="index">
+  <h1
+    class="my-20 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-center text-4xl font-bold text-transparent"
+  >
+    Анимации
+  </h1>
+  <div class="mt-6 flex flex-col items-center gap-6">
+    {
+      pages.map(page => (
+        <a
+          href={`${page.href}`}
+          class="animation-button group relative overflow-hidden"
+        >
+          <span class="relative z-10 transition-colors duration-300 group-hover:text-white">
+            {page.title}
+          </span>
+          <span class="absolute inset-0 z-0 -translate-x-full transform bg-gradient-to-r from-purple-500 to-blue-700 transition-transform duration-500 ease-in-out group-hover:translate-x-0" />
+          <span class="absolute inset-0 rounded-full border-2 border-transparent transition-all duration-300 group-hover:border-purple-400" />
+        </a>
+      ))
+    }
+  </div>
+</Layout>
+
+<style>
+  .animation-button {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+
+    width: 300px;
+  }
+
+  .animation-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .animation-button:active {
+    transform: translateY(-1px);
+  }
+
+  .animation-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .animation-button:hover::before {
+    transform: translateX(100%);
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(192, 132, 252, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(192, 132, 252, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(192, 132, 252, 0);
+    }
+  }
+
+  .animation-button:hover {
+    animation: pulse 1.5s infinite;
+  }
+</style>

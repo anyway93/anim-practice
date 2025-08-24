@@ -1,0 +1,64 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className, ...props } = Astro.props as Props
+
+export { GsapContent }
+---
+
+<div
+  class:list={['gsap-content gsap container', className]}
+  {...props}
+>
+  <div class="flex gap-[100px]">
+    <div class="box"></div>
+    <div class="flex flex-col gap-10">
+      <div class="item">
+        <h2>1. Заголовок первого блока</h2>
+        <p>...</p>
+      </div>
+      <div class="item">
+        <h2>2. Второй интересный блок</h2>
+        <p>...</p>
+      </div>
+      <div class="item">
+        <h2>3. Ещё один блок с текстом</h2>
+        <p>...</p>
+      </div>
+      <div class="item">
+        <h2>4. Почти конец</h2>
+        <p>...</p>
+      </div>
+      <div class="item">
+        <h2>5. Финальный блок</h2>
+        <p>...</p>
+      </div>
+      <div class="item">
+        <h2>5. Финальный блок</h2>
+        <p>...</p>
+      </div>
+      <div class="item">
+        <h2>5. Финальный блок</h2>
+        <p>...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="animated-section mt-[200px] space-y-20">
+    <div
+      class="parallax-bg h-[400px] rounded-xl bg-cover bg-center shadow-lg"
+      style="background-image: url('/your-image.jpg');"
+    >
+    </div>
+
+    <div class="rotate-box mx-auto h-[150px] w-[150px] rounded-full bg-emerald-500 shadow-xl"></div>
+
+    <div class="line-expand mx-auto h-[6px] w-0 rounded-full bg-blue-500"></div>
+  </div>
+</div>
+
+<style>
+  @import './gsap-content.scss';
+</style>

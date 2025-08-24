@@ -1,0 +1,35 @@
+---
+interface Props {
+  class?: string
+  isFixed?: boolean
+}
+
+const { class: className, isFixed = false, ...props } = Astro.props as Props
+
+export { Calendar }
+---
+
+<div
+  class:list={['ui-calendar', className]}
+  {...props}
+>
+  <input
+    id="uiCalendar"
+    type="text"
+    ,
+    placeholder="ДД.ММ.ГГГГ"
+    ,
+    data-mask-date=""
+  />
+  <div class:list={['calendar-wrapper', isFixed && 'is-fixed']}>
+    <div
+      id="calendar"
+      data-fixed={isFixed}
+    >
+    </div>
+  </div>
+</div>
+
+<style>
+  @import './calendar.scss';
+</style>
