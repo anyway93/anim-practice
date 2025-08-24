@@ -1,33 +1,74 @@
 .gsap {
-  width: 80%;
-  margin-inline: auto;
-  font-size: 30px;
-  padding-bottom: 1000px;
+  position: static;
 
-  .box {
-    width: 50px;
-    height: 50px;
-    background-color: #567B9B;
-    border-radius: 10px;
-
-    margin-top: 200px;
+  [data-hello-gsap] {
+    font-size: 100px;
+    transition: $transition;
+    width: fit-content;
+    margin-inline: auto;
+    color: #fff;
   }
 
-  .parallax-bg {
-    background-attachment: fixed;
+  .orb {
+    box-shadow:
+      0 0 20px 10px rgba(255, 255, 255, 0.1),
+      inset 0 0 20px 10px rgba(255, 255, 255, 0.05);
+
+    cursor: pointer;
+  }
+  .orb:hover {
+    // transform: translateY(-5px);
+    box-shadow:
+      0 0 30px 15px rgba(255, 255, 255, 0.15),
+      inset 0 0 25px 12px rgba(255, 255, 255, 0.08);
+  }
+  .main-orb {
+    background: radial-gradient(circle at 30% 30%, #667eea 0%, #764ba2 100%);
+  }
+  .orb-1 {
+    background: radial-gradient(circle at 30% 30%, #f093fb 0%, #f5576c 100%);
+  }
+  .orb-2 {
+    background: radial-gradient(circle at 30% 30%, #4facfe 0%, #00f2fe 100%);
+  }
+  .orb-3 {
+    background: radial-gradient(circle at 30% 30%, #43e97b 0%, #38f9d7 100%);
+  }
+  .wrapper-balls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: -1;
   }
 
-  .rotate-box {
-    // transform-origin: center;
+  // Стили для контейнеров маленьких шаров
+  [data-orb] {
+    cursor: pointer;
+    transition: transform 0.3s ease;
   }
+  [data-orb]:hover {
+    transform: scale(1.1);
+  }
+}
 
-  .reveal-word {
-    transform: translateY(100%);
-    opacity: 0;
-  }
+:global(body) {
+  background-color: #0f172a;
+}
 
-  .line-expand {
-    width: 0;
-    height: 6px;
-  }
+:global(h1) {
+  color: #fff !important;
+}
+
+.box-scroll {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  background-color: #1e283f;
 }

@@ -1,66 +1,58 @@
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export function gsapInit() {
-  console.log("GSAP init");
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger)
 
+  const helloGsap = document.querySelector('[data-hello-gsap]')
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".container",
-      pin: true,
-      start: "top top",
-      end: "+=800",
-      scrub: 1,
-    },
-  });
+  const tl = gsap.timeline()
 
-  tl.to(".box", {
-    rotate: 360,
-    scale: 2,
-    backgroundColor: "#f59e0b",
-    duration: 2,
-  }).to(".box", {
-    duration: 2,
-  });
+  tl.from(helloGsap, { scale: 0, opacity: 0, duration: 3 }).to(helloGsap, {
+    rotation: 5,
+    duration: 3,
+    yoyo: true,
+    repeat: -1,
+    ease: 'power3.out'
+  })
 
-  gsap.to(".rotate-box", {
-    scrollTrigger: {
-      trigger: ".rotate-box",
-      start: "top 80%",
-    },
-    rotate: 720,
-    scale: 1.5,
-    duration: 2,
-    ease: "power2.inOut",
-  });
+  const mainOrb = document.getElementById('main-orb')
+  const smallOrbs = document.querySelectorAll('[data-orb]')
 
+  // Текущий активный класс шара
+  let currentOrbClass = 'main-orb'
 
+  // Обработчик клика на маленькие шары
+  smallOrbs.forEach(orbContainer => {
+    orbContainer.addEventListener('click', () => {
+      const targetOrbClass = orbContainer.getAttribute('data-orb')
 
+      // Если кликнули на уже активный шар - ничего не делаем
+      if (targetOrbClass === currentOrbClass) return
 
-  gsap.to(".line-expand", {
-    scrollTrigger: {
-      trigger: ".line-expand",
-      start: "top 70%",
-    },
-    width: "80%",
-    duration: 1,
-    ease: "power1.inOut",
-  });
+      // Анимация исчезновения текущего шара
+      gsap.to(mainOrb, {
+        scale: 0,
+        opacity: 0,
+        duration: 1,
+        ease: 'power4.out',
+        onComplete: () => {
+          // Меняем классы шара
+          mainOrb.classList.remove(currentOrbClass)
+          mainOrb.classList.add(targetOrbClass)
 
+          // Обновляем текущий класс
+          currentOrbClass = targetOrbClass
 
-  gsap.utils.toArray(".item").forEach((item, i) => {
-    gsap.from(item, {
-      scrollTrigger: {
-        trigger: item,
-        start: "top 90%",
-      },
-      y: 100,
-      opacity: 0,
-      duration: 0.6,
-      delay: i * 0.1,
-      ease: "back.out(1.7)",
-    });
-  });
+          // Анимация появления нового шара
+          gsap.to(mainOrb, {
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: 'power4.out'
+          })
+        }
+      })
+    })
+  })
 }

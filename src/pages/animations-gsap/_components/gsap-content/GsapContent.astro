@@ -12,50 +12,58 @@ export { GsapContent }
   class:list={['gsap-content gsap container', className]}
   {...props}
 >
-  <div class="flex gap-[100px]">
-    <div class="box"></div>
-    <div class="flex flex-col gap-10">
-      <div class="item">
-        <h2>1. Заголовок первого блока</h2>
-        <p>...</p>
+  <h2 data-hello-gsap>HELLO GSAP</h2>
+
+  <div class="wrapper-balls relative">
+    <div class="relative flex w-full flex-col items-center justify-center pb-[200px] pt-[100px]">
+      <!-- Большой центральный шар -->
+      <div
+        id="main-orb"
+        class="main-orb orb relative z-10 h-64 w-64 rounded-full"
+      >
       </div>
-      <div class="item">
-        <h2>2. Второй интересный блок</h2>
-        <p>...</p>
+
+      <!-- Свечение вокруг большого шара -->
+      <div class="glow main-orb h-80 w-80 opacity-40"></div>
+
+      <!-- Контейнер для маленьких шаров -->
+      <div class="mt-24 flex space-x-12">
+        <!-- Первый маленький шар -->
+        <div
+          class="relative"
+          data-orb="orb-1"
+        >
+          <div class="orb orb-1 relative z-10 h-20 w-20 rounded-full"></div>
+          <div class="glow orb-1 -ml-4 -mt-4 h-28 w-28 opacity-30"></div>
+        </div>
+
+        <!-- Второй маленький шар -->
+        <div
+          class="relative"
+          data-orb="orb-2"
+        >
+          <div class="orb orb-2 relative z-10 h-20 w-20 rounded-full"></div>
+          <div class="glow orb-2 -ml-4 -mt-4 h-28 w-28 opacity-30"></div>
+        </div>
+
+        <!-- Третий маленький шар -->
+        <div
+          class="relative"
+          data-orb="orb-3"
+        >
+          <div class="orb orb-3 relative z-10 h-20 w-20 rounded-full"></div>
+          <div class="glow orb-3 -ml-4 -mt-4 h-28 w-28 opacity-30"></div>
+        </div>
       </div>
-      <div class="item">
-        <h2>3. Ещё один блок с текстом</h2>
-        <p>...</p>
-      </div>
-      <div class="item">
-        <h2>4. Почти конец</h2>
-        <p>...</p>
-      </div>
-      <div class="item">
-        <h2>5. Финальный блок</h2>
-        <p>...</p>
-      </div>
-      <div class="item">
-        <h2>5. Финальный блок</h2>
-        <p>...</p>
-      </div>
-      <div class="item">
-        <h2>5. Финальный блок</h2>
-        <p>...</p>
-      </div>
+
+      <!-- Дополнительные декоративные элементы -->
+      <div class="glow main-orb absolute -z-10 h-[500px] w-[500px] opacity-10"></div>
     </div>
+    <p class="absolute bottom-[40px] text-2xl text-white/50">Можно кликнуть на шарики</p>
   </div>
 
-  <div class="animated-section mt-[200px] space-y-20">
-    <div
-      class="parallax-bg h-[400px] rounded-xl bg-cover bg-center shadow-lg"
-      style="background-image: url('/your-image.jpg');"
-    >
-    </div>
-
-    <div class="rotate-box mx-auto h-[150px] w-[150px] rounded-full bg-emerald-500 shadow-xl"></div>
-
-    <div class="line-expand mx-auto h-[6px] w-0 rounded-full bg-blue-500"></div>
+  <div class="mx-auto max-w-[80%]">
+    <div class="box-scroll"></div>
   </div>
 </div>
 

@@ -1,12 +1,12 @@
-import { accordionExamples } from '@pages/front-api/_components/accordion-examples/accordion-examples'
-import { inputmaskExamples } from '@pages/front-api/_components/inputmask-examples/inputmask-examples'
-import { modalExamples } from '@pages/front-api/_components/modal-examples/modal-examples'
-import { rangeExamples } from '@pages/front-api/_components/range-examples/range-examples'
-import { selectExamples } from '@pages/front-api/_components/select-examples/select-examples'
-import { swiperExamples } from '@pages/front-api/_components/swiper-examples/swiper-examples'
-import { tabsExamples } from '@pages/front-api/_components/tabs-examples/tabs-examples'
-import { toastsExamples } from '@pages/front-api/_components/toasts-examples/toasts-examples'
-import { tooltipExamples } from '@pages/front-api/_components/tooltip-examples/tooltip-examples'
+// import { accordionExamples } from '@pages/front-api/_components/accordion-examples/accordion-examples'
+// import { inputmaskExamples } from '@pages/front-api/_components/inputmask-examples/inputmask-examples'
+// import { modalExamples } from '@pages/front-api/_components/modal-examples/modal-examples'
+// import { rangeExamples } from '@pages/front-api/_components/range-examples/range-examples'
+// import { selectExamples } from '@pages/front-api/_components/select-examples/select-examples'
+// import { swiperExamples } from '@pages/front-api/_components/swiper-examples/swiper-examples'
+// import { tabsExamples } from '@pages/front-api/_components/tabs-examples/tabs-examples'
+// import { toastsExamples } from '@pages/front-api/_components/toasts-examples/toasts-examples'
+// import { tooltipExamples } from '@pages/front-api/_components/tooltip-examples/tooltip-examples'
 import { catalogMenuInit } from '@pages/ui/_components/catalog-menu/catalog-menu'
 import { accordionApi } from '@shared/ui/accordion/accordion'
 import { dropdownApi } from '@shared/ui/dropdown/dropdown'
@@ -30,7 +30,7 @@ import { stickyAnchors } from '@widgets/sticky-anchors/sticky-anchors.js'
 
 import { ModalApi } from './components/modals'
 import config from './config'
-import { frontApi } from './frontApi'
+// import { frontApi } from './frontApi'
 import { fancyboxInit } from './libs/fancybox'
 import { inputmaskApi } from './libs/inputmask/inputmask'
 import { scrollManager } from './libs/lenis/lenis'
@@ -51,32 +51,30 @@ export const commonFunction = (): void => {
 
   formApi.initAll()
 
-  accordionApi.initAll()
-  accordionExamples()
+  // accordionApi.initAll()
+  // accordionExamples()
 
-  toastApi.initAll()
-  toastsExamples()
 
-  TabsApi.initAll()
-  tabsExamples()
+  // TabsApi.initAll()
+  // tabsExamples()
 
-  ModalApi.initAll()
-  modalExamples()
+  // ModalApi.initAll()
+  // modalExamples()
 
-  selectApi.initAll()
-  selectExamples()
+  // selectApi.initAll()
+  // selectExamples()
 
-  tooltipApi.initAll()
-  tooltipExamples()
+  // tooltipApi.initAll()
+  // tooltipExamples()
 
-  rangeApi.initAll()
-  rangeExamples()
+  // rangeApi.initAll()
+  // rangeExamples()
 
-  swiperApi.initAll()
-  swiperExamples()
+  // swiperApi.initAll()
+  // swiperExamples()
 
-  inputmaskApi.reinitAll()
-  inputmaskExamples()
+  // inputmaskApi.reinitAll()
+  // inputmaskExamples()
 
   dropdownApi.initAll()
 
@@ -111,7 +109,7 @@ console.info(import.meta.env)
 
 document.addEventListener('DOMContentLoaded', () => {
   config()
-  frontApi()
+  // frontApi()
   // initHeader()
   commonFunction()
 })
